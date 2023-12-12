@@ -1,4 +1,4 @@
-package fr.uga.miashs.inff3.bataillenavale; 
+package fr.uga.miashs.inff3.bataillenavale;
 // !! lever des exceptions !!
 public abstract class Joueur {
 	public final static int TOUCHE = 1;
