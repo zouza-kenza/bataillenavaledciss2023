@@ -51,7 +51,7 @@ public class Navire {
 	public boolean chevauche (Navire n){
 		for (int i = debut.getLigne();i <=fin.getLigne();i++) {
 			for (int j=debut.getColonne(); j<=fin.getColonne(); j++){
-				if (n.contient(part)){
+				 if (n.contient(new Coordonnee(i,j))){ // nouvelle instance 
 					return true;
 				}
 			}
