@@ -7,8 +7,12 @@ public class JoueurTexte extends JoueurAvecGrille {
 	
 	public JoueurTexte(GrilleNavale g, String nom) {
 		super(GrilleNavale g, String nom);
+		this.sc = new Scanner(System.in);
 	}
-	public JoueurTexte(GrilleNavale g) {...}
+	 public JoueurTexte(GrilleNavale g) {
+        	super(g);
+		 this.sc = new Scanner(System.in);
+    }
 	
 	protected void retourAttaque(Coordonnee c, int etat) {...}
 	protected void retourDefense(Coordonnee c, int etat) {...}
