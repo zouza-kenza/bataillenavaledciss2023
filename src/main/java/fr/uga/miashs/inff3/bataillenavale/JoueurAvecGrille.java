@@ -17,18 +17,20 @@ public class JoueurAvecGrille extends Joueur {
 	}
 	
 	//méthode
-	public int defendre(Coordonnee c) {
-		if (c.estTouche()) {	//ne marche pas là car méthode estTouche non défini chez moi
-			return super.TOUCHE;
-		}
-		else if (c.estCoule()) {
-			return super.COULE;
-		}
-		else if (c.perdu()) {
-			return super.GAMEOVER;
-		}
-		return super.A_L_EAU;
-		// je pense que ça va pas cette méthode
+	public int defendre(Coordonnee c) { //c : la position du tir
+		// si la grille a reçu un tir et on vérifie ensuite si la case :
+		this.grille.recoitTir(c);
+			//est dans l'eau
+			if (this.grille.estALEau(c))
+				return super.A_L_EAU;
+			//est coulée
+			else if (this.grille.estCoule(c))
+				return super.COULE;
+			//this means ur dead mofo
+			else if (this.grille.perdu())
+				return super.GAMEOVER;
+			else
+				return super.TOUCHE; //le tir a touché un bateau
 	}
 	
 	
