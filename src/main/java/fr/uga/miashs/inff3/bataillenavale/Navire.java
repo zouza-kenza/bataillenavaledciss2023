@@ -46,7 +46,18 @@ public class Navire {
 		return false;
 	}
 	
-//	public boolean touche(Navire n) {...}
+public boolean touche(Navire n) {
+		/*touche ligne et chevauche colonne*/
+if((n.fin.getLigne()+1 == this.debut.getLigne()||this.fin.getLigne()+1==n.debut.getLigne())
+&&(this.debut.getColonne()<= n.fin.getColonne() && n.debut.getColonne()<=this.fin.getColonne())) {
+return true;
+/*touche colonne et chevauche ligne*/
+}else if((n.fin.getColonne()+1 == this.debut.getColonne() || this.fin.getColonne()+1==n.debut.getColonne())
+	&& (this.debut.getLigne()<=n.fin.getLigne() && n.debut.getLigne()<=this.fin.getLigne()) ){
+return true; 
+}
+return false; 
+}
 
 	public boolean chevauche (Navire n){
 		for (int i = debut.getLigne();i <=fin.getLigne();i++) {
