@@ -1,7 +1,7 @@
 package batailleNavale;
 
 public class Navire {
-	private Coordonnee debut;
+		private Coordonnee debut;
 	private Coordonnee fin;
 	private Coordonnee[] partiesTouchees;
 	private int nbTouchees;
@@ -10,7 +10,6 @@ public class Navire {
 	//constructeur :
 	public Navire(Coordonnee debut, int longueur, boolean estVertical) {
 		this.debut = debut;
-		
 		if (estVertical) {
 			fin = new Coordonnee(debut.getLigne() + longueur - 1, debut.getColonne());
 		}
@@ -29,7 +28,7 @@ public class Navire {
 			return ("Navire(" + debut + ", " + (fin.getColonne() - debut.getColonne() + 1) + " horizontal)");
 		return ("Navire(" + debut + ", " + (fin.getLigne() - debut.getLigne() + 1) + " vertical"); //vertical
 	}
-	
+
 	// retournent respectivement les coordonnées de début et de fin du navire.
 	public Coordonnee getDebut() {
 		return this.debut;
@@ -47,12 +46,19 @@ public class Navire {
 		return false;
 	}
 	
-	// teste si le navire touche un autre navire.
 //	public boolean touche(Navire n) {...}
-	
-	// teste si le navire chevauche un autre navire
-//	public boolean chevauche(Navire n) {...}
-	
+
+	public boolean chevauche (Navire n){
+		for (int i = debut.getLigne();i <=fin.getLigne();i++) {
+			for (int j=debut.getColonne(); j<=fin.getColonne(); j++){
+				if (n.contient(part)){
+					return true;
+				}
+			}
+		}
+		return false ; 
+	}
+
 	// enregistre la coordonnée spécifiée comme étant touchée.
 	public boolean recoitTir(Coordonnee c) {
 		//vérifie si la coordonnée n'existe pas dans partiesTouchees[]
@@ -71,13 +77,20 @@ public class Navire {
 		return false;
 	}
 	
-	//teste si la coordonnée spécifiée a été touchée.
 //	public boolean estTouche(Coordonnee c) {...}
 	
-	// teste si le navire a été touché au moins une fois.
-//	public boolean estTouche() {...}
-	
-	// teste si le navire a coulé.
-//	public boolean estCoule() {...}
-}
+	public boolean estTouche() {
+		if (nbTouchees>0) {
+		return true ;
+		}
+		return false;
+	}
+	public boolean estCoule() {
+		return nbTouchees == partiesTouchees.length;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
+	}
+
+}
