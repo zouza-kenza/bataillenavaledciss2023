@@ -1,6 +1,6 @@
 package fr.uga.miashs.inff3.bataillenavale;
 
-public class Coordonnee {
+public class Coordonnee implements Comparable<Coordonnee>{
 private int ligne;
 	private int colonne;
 	
