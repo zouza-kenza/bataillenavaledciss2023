@@ -27,10 +27,14 @@ public abstract class Joueur {
 	public String getNom() {
 		return nom;
 	}
+	
 	public void jouerAvec(Joueur j) {
-		//vérifier qu'un lien entre les joueurs peut être établi
-		this.adversaire = j ;
-		deroulementJeu(this, j);
+		//vérifier qu'un lien entre les joueurs peut être établi		
+		this.adversaire = j;
+		j.adversaire = this; // établisse un lien entre j et this
+		deroulementJeu(this, j); // lance le déroulement du jeu
+		this.adversaire = null; // si la partie est finie on réinitialise les joueurs à null
+		j.adversaire = null;
 	}
 	
 	private static void deroulementJeu(Joueur attaquant, Joueur defenseur) {
