@@ -1,4 +1,4 @@
-package batailleNavale;
+package fr.uga.miashs.inff3.bataillenavale;
 
 public class Navire {
 		private Coordonnee debut;
