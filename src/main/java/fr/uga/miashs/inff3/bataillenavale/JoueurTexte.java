@@ -30,7 +30,7 @@ public class JoueurTexte extends JoueurAvecGrille { {
 			break; 
 			case GAMEOVER :
 				System.out.println("Partie terminée" + etat);
-			break;  
+			break;  // il faut changer ou bien initialiser pour faire en sorte que 1, 2 , 3 ,4 correspondent bien au Coulé, à l'eau, touché,
 		}
     }
 
