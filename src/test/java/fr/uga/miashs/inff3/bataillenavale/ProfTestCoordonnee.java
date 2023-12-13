@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class TestCoordonnee {
+public class ProfTestCoordonnee {
 	
 	private Coordonnee a1;
 	private Coordonnee b4;

@@ -120,20 +120,30 @@ public class GrilleNavale {
         return false; // La grille n'a pas été modifiée
     }
     public boolean recoitTir(Coordonnee c) {
-    	 if (!estDansGrille(c) || estDansTirsRecus(c)) {
-    	        return false; // La coordonnée est en dehors de la grille ou a déjà été tirée
-    	    }
-
-    	    for (Navire navire : navires) {
-    	        if (navire.estTouche(c)) {
-    	            ajouteDansTirsRecus(c); // Ajouter la coordonnée aux tirs reçus
-    	            return true; // La coordonnée a touché un navire
-    	        }
-    	    }
-
-    	    ajouteDansTirsRecus(c); // Ajouter la coordonnée aux tirs reçus
-    	    return false; // La coordonnée est dans l'eau
-	}
+    	if (ajouteDansTirsRecus(c)) {
+    		for (int i=0; i<nbNavires; i++){
+                if (!navires[i].recoitTir(c)) {
+                    return true; 
+                }
+            }
+    	}
+        return false; 
+    }
+   
+//    	 if (!estDansGrille(c) || estDansTirsRecus(c)) {
+//    	        return false; // La coordonnée est en dehors de la grille ou a déjà été tirée
+//    	    }
+//
+//    	    for (Navire navire : navires) {
+//    	        if (navire.estTouche(c)) {
+//    	            ajouteDansTirsRecus(c); // Ajouter la coordonnée aux tirs reçus
+//    	            return true; // La coordonnée a touché un navire
+//    	        }
+//    	    }
+//
+//    	    ajouteDansTirsRecus(c); // Ajouter la coordonnée aux tirs reçus
+//    	    return false; // La coordonnée est dans l'eau
+//	}
     
     public boolean estTouche(Coordonnee c) {
         for (Navire navire : navires) {
@@ -147,17 +157,17 @@ public class GrilleNavale {
         return !estTouche(c) && estDansTirsRecus(c);
     }
     public boolean estCoule(Coordonnee c) {
-    	for (Navire navire : navires) {
-            if (!navire.estCoule()) {
-                return false; // Au moins un navire n'est pas coulé
+    	for (int i=0; i<nbNavires; i++){
+            if (!navires[i].estCoule()) {
+                return true; 
             }
         }
-        return true; // Tous les navires sont coulés
+        return false; 
     }
 
-    public boolean perdu() {
-        for (Navire navire : navires) {
-            if (!navire.estCoule()) {
+    public boolean perdu() { 
+    	for (int i=0; i<nbNavires; i++){
+            if (!navires[i].estCoule()) {
                 return false; // Il reste au moins un navire non coulé
             }
         }
