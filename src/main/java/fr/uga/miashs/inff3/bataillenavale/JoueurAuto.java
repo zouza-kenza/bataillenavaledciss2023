@@ -1,6 +1,6 @@
-package batailleNavale;
+package fr.uga.miashs.inff3.bataillenavale;
 
-import java.util.random;
+import java.util.Random;
 
 public class JoueurAuto extends JoueurAvecGrille {
 	private Random random = new Random();
@@ -26,13 +26,14 @@ public class JoueurAuto extends JoueurAvecGrille {
 		int colonne = random.nextInt(getTailleGrille());
 		return new Coordonnee(ligne, colonne); // pas sur d'avoir besoin
 		}
-	}
+	
 
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
+}
 
 
 

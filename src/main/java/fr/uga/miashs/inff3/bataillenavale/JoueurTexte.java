@@ -1,8 +1,8 @@
-package batailleNavale;
+package fr.uga.miashs.inff3.bataillenavale;
 
 import java.util.Scanner;
 
-public class JoueurTexte extends JoueurAvecGrille { {
+public class JoueurTexte extends JoueurAvecGrille { 
 	 
 
     private Scanner sc;
@@ -51,7 +51,7 @@ public class JoueurTexte extends JoueurAvecGrille { {
 		}
     }
        
-    }
+    
 
 
 	public Coordonnee choixAttaque() {
@@ -62,15 +62,12 @@ public class JoueurTexte extends JoueurAvecGrille { {
 
 		String coordonneeStr = ligne + colonne; 
 
-	}
+	
 
     return new Coordonnee(coordonneeStr) ;
 }
    
-	public abstract int defendre (Coordonnee c) {
-		return super.defendre(c);
 
- }
 
 /*private boolean estValide(String CoordonneeValide) {
     if (CoordonneeValide.length() < 2 || CoordonneeValide.length() > 3) 
@@ -85,3 +82,4 @@ public class JoueurTexte extends JoueurAvecGrille { {
      } 
 } */
  // c'est pour voir si les coordonnées sont bons ou pas, on peut rajouter la méthode qui permet de savoir si les coordonnées sont valides ou pas dans coordonne
+}}
