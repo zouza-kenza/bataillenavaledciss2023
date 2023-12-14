@@ -1,3 +1,4 @@
+package fr.uga.miashs.inff3.bataillenavale;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class TestNavire {

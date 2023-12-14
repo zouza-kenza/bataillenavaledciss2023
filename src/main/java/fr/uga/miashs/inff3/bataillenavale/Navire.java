@@ -39,10 +39,10 @@ public class Navire {
 	
 	// teste si le navire contient la coordonnée spécifiée.
 	public boolean contient(Coordonnee c) {
-		if (debut.getLigne() == c.getLigne() && debut.getColonne() >= c.getColonne() && fin.getColonne() >= c.getColonne())
-			return true;
-		else if (debut.getColonne() == c.getColonne() && debut.getLigne() >= c.getLigne() && fin.getLigne() >= c.getColonne())
-			return true;
+		if (debut.getLigne()==fin.getLigne())
+			return  debut.getLigne() == c.getLigne() && debut.getColonne() <= c.getColonne() && fin.getColonne() >= c.getColonne();
+		else if (debut.getColonne()==fin.getColonne() )
+			return debut.getColonne() == c.getColonne() && debut.getLigne() <= c.getLigne() && fin.getLigne() >= c.getLigne();
 		return false;
 	}
 	
@@ -111,3 +111,4 @@ return false;
 	}
 
 }
+
