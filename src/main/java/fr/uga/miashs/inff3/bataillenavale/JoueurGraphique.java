@@ -11,8 +11,7 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
 	GrilleGraphique grilleTirs, String nom) {
-		super(nom);
-		this.grilleDefense = new GrilleNavaleGraphique();
+		super(grilleDefense, nom);
 		this.grilleTirs = grilleTirs;
 	}
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
