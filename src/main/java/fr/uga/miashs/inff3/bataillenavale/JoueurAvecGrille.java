@@ -37,5 +37,20 @@ public class JoueurAvecGrille extends Joueur {
 		// TODO Auto-generated method stub
 
 	}
+	@Override
+	protected void retourAttaque(Coordonnee c, int etat) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	protected void retourDefense(Coordonnee c, int etat) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Coordonnee choixAttaque() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
