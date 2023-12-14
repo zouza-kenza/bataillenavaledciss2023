@@ -1,15 +1,37 @@
 package fr.uga.miashs.inff3.bataillenavale;
+import java.awt.*; //pour colorier
 
 public class GrilleNavaleGraphique extends GrilleNavale {
-  private GrilleGraphique grille;
- 
-  public GrilleNavaleGraphique(int taille) {
-      //this.grille = taille*taille;
-  }
-  
-  public GrilleGraphique getGrilleGraphique() {
-      //return GrilleGraphique;
-  }
-  public boolean ajouteNavire(Navire n) {...}
-  public boolean recoitTir(Coordonnee c) {...}
+	private GrilleGraphique grille;
+	
+	//Constructeur : permet d'obtenir une grille de taille
+	public GrilleNavaleGraphique(int taille) {
+		super(taille, null); // la 2em variable : nbNavire - comment on cacule ca ?
+		grille = new GrilleGraphique(taille);
+	}
+	
+	//méthodes :
+	public GrilleGraphique getGrilleGraphique() {
+		return this.grille; //accesseur en lecture pour grille
+	}
+	
+	public boolean ajouteNavire(Navire n) {
+		 if (super.ajouteNavire(n)) {
+			 //colore la partie de la grille occupée par le navire n en vert.
+			 this.grille.colorie(n.getDebut(), n.getFin(), Color.GREEN);
+			 return true;
+		 }
+			return false;
+		}
+
+
+		public boolean recoitTir(Coordonnee c) {
+			if (super.recoitTir(c)) { //vérifie si le tir a touché un navire
+				this.grille.colorie(c, Color.RED); // colore la case de la grille touchée par le tir en rouge.
+				return true;
+			}
+			else {
+				this.grille.colorie(c, Color.BLUE);  //colore la case de la grille non touchée par le tir en bleu.
+				return false; 
+			}}
 }
