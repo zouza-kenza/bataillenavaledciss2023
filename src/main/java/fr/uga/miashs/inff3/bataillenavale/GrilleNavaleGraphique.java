@@ -6,7 +6,8 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 	
 	//Constructeur : permet d'obtenir une grille de taille
 	public GrilleNavaleGraphique(int taille) {
-		super(taille, null); // la 2em variable : nbNavire - comment on cacule ca ?
+		super(taille, 5); // le prof m'a dit qu'on peut mettre n'importe quel nombre sur la deuxième variable
+		// parce que c'est la capacité du nombre de navires qu'on a dans la grille
 		grille = new GrilleGraphique(taille);
 	}
 	
