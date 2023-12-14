@@ -51,9 +51,6 @@ public class JoueurTexte extends JoueurAvecGrille {
 		}
     }
        
-    
-
-
 	public Coordonnee choixAttaque() {
     System.out.println("Saisissez la ligne pour l'attaque : ");
     	String ligne = sc.nextLine();
@@ -62,9 +59,8 @@ public class JoueurTexte extends JoueurAvecGrille {
 
 		String coordonneeStr = ligne + colonne; 
 
-	
-
     return new Coordonnee(coordonneeStr) ;
+	}
 }
    
 
@@ -80,6 +76,6 @@ public class JoueurTexte extends JoueurAvecGrille {
     } catch (NumberFormatException e) {
         return false;
      } 
-} */
+} 
  // c'est pour voir si les coordonnées sont bons ou pas, on peut rajouter la méthode qui permet de savoir si les coordonnées sont valides ou pas dans coordonne
-}}
+*/
