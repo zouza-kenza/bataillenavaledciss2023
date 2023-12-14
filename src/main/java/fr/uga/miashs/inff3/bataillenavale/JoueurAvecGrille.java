@@ -7,8 +7,8 @@ public class JoueurAvecGrille extends Joueur {
 	//constructeurs
 	public JoueurAvecGrille(GrilleNavale g, String nom) {
 		// nom=super.nom; //ça marche pas pourquoi ? => Syntax error je pense
-		super(g.getTaille(), nom); // <= ça marche :) thank me later
-		// pourquoi ? on va avoir un nouvel objet Joueur avec la taille de la grille de navires = g.getTaille() et le nom = nom.
+		super(g.getTaille(), nom);
+		// on va avoir un nouvel objet Joueur avec la taille de la grille de navires = g.getTaille() et le nom = nom.
 		this.grille = g;
 	}
 	public JoueurAvecGrille(GrilleNavale g) {
