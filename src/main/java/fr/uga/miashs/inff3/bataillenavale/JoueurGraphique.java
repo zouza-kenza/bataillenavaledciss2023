@@ -9,9 +9,15 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	private GrilleGraphique grilleTirs;
 	
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
-	GrilleGraphique grilleTirs, String nom) {...}
+	GrilleGraphique grilleTirs, String nom) {
+		super(nom);
+		this.grilleDefense = new GrilleNavaleGraphique();
+		this.grilleTirs = grilleTirs;
+	}
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
-	GrilleGraphique grilleTirs) {...}
+	GrilleGraphique grilleTirs) {
+		this(grilleDefense, nom);
+	}
 	
 	public Coordonnee choixAttaque() {...}
 	protected void retourDefense(Coordonnee c, int etat) {...}
