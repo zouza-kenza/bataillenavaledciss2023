@@ -26,7 +26,7 @@ public class JoueurGraphique extends JoueurAvecGrille {
 		grilleTirs.colorie(c, couleur);
 		switch (etat) {
 		case TOUCHE:
-		JOptionPane.showMessageDialog(grilleTirs, "Vous avez touchéun navire en " + c);
+		JOptionPane.showMessageDialog(grilleTirs, "Vous avez touché un navire en " + c);
 		break;
 		case COULE:
 		JOptionPane.showMessageDialog(grilleTirs, "Vous avez coulé un navire en " + c);
