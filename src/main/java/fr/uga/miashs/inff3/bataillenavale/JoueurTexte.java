@@ -18,7 +18,7 @@ public class JoueurTexte extends JoueurAvecGrille {
     }
 
     protected void retourAttaque(Coordonnee c, int etat) {
-		String message = switch (etat) {
+		switch (etat) {
 			case TOUCHE :
 				System.out.println("Vous avez touché en " + c + "le navire est " + etat);
 			break;
@@ -35,7 +35,7 @@ public class JoueurTexte extends JoueurAvecGrille {
     }
 
     protected void retourDefense(Coordonnee c, int etat) {
-		String message = switch (etat) {
+		switch (etat) {
 			case TOUCHE :
 				System.out.println("Vous avez été touché en " + c + "le navire est " + etat);
 			break;
