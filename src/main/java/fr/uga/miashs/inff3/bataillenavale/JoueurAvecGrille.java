@@ -21,7 +21,7 @@ public class JoueurAvecGrille extends Joueur {
 		// si la grille a reçu un tir et on vérifie ensuite si la case :
 		this.grille.recoitTir(c);
 			if (this.grille.estALEau(c))
-				return super.A_L_EAU;
+				return super.A_L_EAU; // si ça marche pas remplacer par chiffres
 			else if (this.grille.estCoule(c))
 				return super.COULE;
 			
