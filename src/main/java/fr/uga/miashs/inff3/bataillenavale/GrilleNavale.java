@@ -188,7 +188,13 @@ public class GrilleNavale {
     public int getTaille() {
         return taille;
     }
-
+	
+    public boolean indicesValides(Coordonnee c) {
+        int ligne = c.getLigne();
+        int colonne = c.getColonne();
+        return ligne >= 1 && ligne <= taille && colonne >= 1 && colonne <= taille;
+    }
+    
     public boolean ajouteNavire(Navire n) {
        for (int i=0 ; i< nbNavires ; i++) {
     	   if (navires[i].touche(n) || navires[i].chevauche(n)) {
@@ -208,6 +214,9 @@ public class GrilleNavale {
     }
 
     private boolean estDansGrille(Coordonnee c) {
+	if (!indicesValides(c)) {
+        throw new IllegalArgumentException("Coordonnées en dehors des limites de la grille");
+    	}
         int ligne = c.getLigne();
         int colonne = c.getColonne();
 
@@ -223,6 +232,9 @@ public class GrilleNavale {
         return false; // La coordonnée ne correspond à aucun tir reçu
     }
     private boolean ajouteDansTirsRecus(Coordonnee c) {
+	if (!indicesValides(c)) {
+        throw new IllegalArgumentException("Coordonnées en dehors des limites de la grille");
+    	}
         if (!estDansTirsRecus(c)) { // Vérifier si la coordonnée n'est pas déjà dans les tirs reçus
             if (nbTirsRecus < taille * taille) { // Vérifier si l'ajout est possible sans dépasser la capacité
                 tirsRecus[nbTirsRecus] = c;
