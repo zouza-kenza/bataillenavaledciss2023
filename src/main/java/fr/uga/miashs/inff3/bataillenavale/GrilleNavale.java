@@ -16,6 +16,9 @@ public class GrilleNavale {
 //        this.nbTirsRecus = 0;
 //    }
     public GrilleNavale(int taille, int[] taillesNavires) {
+	if (taille < 5) {
+		throw new IllegalArgumentException("La taille de la grille doit être supérieure à 5");
+	}
         this.taille = taille;
         this.nbNavires = 0;
         int totalTailleNavires = 0;
@@ -158,8 +161,9 @@ public class GrilleNavale {
 
 	}
 	public void placementAuto(int[] taillesNavires) {
-		if (taillesNavires.length > navires.length)
+		if (taillesNavires.length > navires.length) {
 			throw new IllegalArgumentException("Il y a trop de navires par rapport à la capacité de la grille");
+		}
 		int colonne = 0;
 		int ligne = 0;
 		Coordonnee c = null;
