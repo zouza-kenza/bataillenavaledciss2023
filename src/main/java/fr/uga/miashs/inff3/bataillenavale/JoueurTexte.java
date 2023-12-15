@@ -55,6 +55,8 @@ public class JoueurTexte extends JoueurAvecGrille {
     }
        
 	public Coordonnee choixAttaque() {
+		//lever une exception si la 1ère saisie n'est pas un chiffre compris entre 1 et taille de la grille+1?
+		//lever une exception si la 2ème saisie n'est pas une lettre comprise entre A et taille grille convertit en lettre
     System.out.println("Saisissez la ligne pour l'attaque : ");
     	String ligne = sc.nextLine();
     System.out.println("Saisissez la colonne pour l'attaque : ");
