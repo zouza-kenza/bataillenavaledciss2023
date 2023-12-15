@@ -6,8 +6,8 @@ import java.util.Random;
 
 
 public class JoueurAuto extends JoueurAvecGrille {
-	//private Random random = new Random();
-
+	private Random random = new Random();
+	 private Set<Coordonnee> tirsEffectues;
 		public JoueurAuto(GrilleNavale g, String nom){
 			super(g, nom);
 			if (nom.isEmpty() || nom == null) {
