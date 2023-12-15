@@ -1,6 +1,9 @@
 package fr.uga.miashs.inff3.bataillenavale;
 
-//import java.util.Random;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Random;
+
 
 public class JoueurAuto extends JoueurAvecGrille {
 	//private Random random = new Random();
@@ -33,7 +36,33 @@ public class JoueurAuto extends JoueurAvecGrille {
 		*/
 		return new Coordonnee((int)(Math.random()*this.getTailleGrille()), (int)(Math.random()*this.getTailleGrille()));
 		}
-
+		/* public Coordonnee choixAttaqueMoyen(boolean estTouche, boolean estCoule) {
+			//il faut que ce soit plus embriqué (si estTouché alors on continue verticalement etc,  si avec nouvel essai estcoulé alors on retourne coordonnée random)
+			//récursivité ??  
+			    if (!estTouche) {
+			     // Si non touché, retourne une coordonnée au hasard
+			    return new Coordonnee((int)(Math.random() * this.getTailleGrille()), (int)(Math.random() * this.getTailleGrille()));
+			    }
+			    if (estCoule) {//peut-être changer l'emplacement car peut pas avoir un bateau de 1 case je crois
+			        // Si touché et le bateau est coulé, coordonnée au hasard
+			        return new Coordonnee((int)(Math.random() * this.getTailleGrille()), (int)(Math.random() * this.getTailleGrille()));
+			    }
+			    // Si touché mais le bateau n'est pas coulé, nouvel essaie 
+			    if (this.getLigne() + 1 < this.getTailleGrille()) {
+			        // Continue l'essai sur la même ligne (ligne + 1) donc verticalement vers le bas
+			        return new Coordonnee(this.getLigne() + 1, this.getColonne());
+			    } else if (this.getLigne() - 1 >= 0) {
+			        // Sinon, essaie avec ligne - 1 donc verticalement vers le haut
+			        return new Coordonnee(this.getLigne() - 1, this.getColonne());
+			    } else if (this.getColonne() + 1 < this.getTailleGrille()) {
+			        // Si ça ne touche rien verticalement, test horizontalement vers la droite avec colonne + 1
+			        return new Coordonnee(this.getLigne(), this.getColonne() + 1);
+			    } else if (this.getColonne() - 1 >= 0) {
+			        // Si colonne + 1 ne fonctionne pas, test horizontalement vers la gauche avec colonne - 1
+			        return new Coordonnee(this.getLigne(), this.getColonne() - 1);
+			    } 
+			}
+	*/
 		public Coordonnee choixAttaqueAuto() { // on va stocker les coordonnées dans lesquelles le bot a attaqué et on va vérifier les tirs précédents grace au set
 			Coordonnee coord; // création de nouvelle coordonnées coord
 			do {
