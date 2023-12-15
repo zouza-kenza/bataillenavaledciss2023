@@ -16,9 +16,6 @@ public class GrilleNavale {
 //        this.nbTirsRecus = 0;
 //    }
     public GrilleNavale(int taille, int[] taillesNavires) {
-	if (taille < 5) {
-		throw new IllegalArgumentException("La taille de la grille doit être supérieure à 5");
-	}
         this.taille = taille;
         this.nbNavires = 0;
         int totalTailleNavires = 0;
@@ -161,9 +158,8 @@ public class GrilleNavale {
 
 	}
 	public void placementAuto(int[] taillesNavires) {
-		if (taillesNavires.length > navires.length) {
+		if (taillesNavires.length > navires.length)
 			throw new IllegalArgumentException("Il y a trop de navires par rapport à la capacité de la grille");
-		}
 		int colonne = 0;
 		int ligne = 0;
 		Coordonnee c = null;
@@ -192,7 +188,7 @@ public class GrilleNavale {
     public int getTaille() {
         return taille;
     }
-    
+
     public boolean ajouteNavire(Navire n) {
        for (int i=0 ; i< nbNavires ; i++) {
     	   if (navires[i].touche(n) || navires[i].chevauche(n)) {
@@ -212,9 +208,6 @@ public class GrilleNavale {
     }
 
     private boolean estDansGrille(Coordonnee c) {
-	if (!estDansGrille(c)) {
-        throw new IllegalArgumentException("Coordonnées en dehors des limites de la grille");
-    	}
         int ligne = c.getLigne();
         int colonne = c.getColonne();
 
@@ -230,9 +223,6 @@ public class GrilleNavale {
         return false; // La coordonnée ne correspond à aucun tir reçu
     }
     private boolean ajouteDansTirsRecus(Coordonnee c) {
-	if (!estDansGrille(c)) {
-        throw new IllegalArgumentException("Coordonnées en dehors des limites de la grille");
-    	}
         if (!estDansTirsRecus(c)) { // Vérifier si la coordonnée n'est pas déjà dans les tirs reçus
             if (nbTirsRecus < taille * taille) { // Vérifier si l'ajout est possible sans dépasser la capacité
                 tirsRecus[nbTirsRecus] = c;
@@ -268,25 +258,33 @@ public class GrilleNavale {
 //    	    return false; // La coordonnée est dans l'eau
 //	}
     
-    public boolean estTouche(Coordonnee c) {
-        for (Navire navire : navires) {
-            if (navire.estTouche(c)) {
-                return true; // Un des navires a été touché en c
-            }
-        }
-        return false; // Aucun navire touché en c
-    }
-//    public boolean estALEau(Coordonnee c) {
-//        return !estTouche(c) && estDansTirsRecus(c);
+//    public boolean estTouche(Coordonnee c) {
+//        for (Navire navire : navires) {
+//            if (navire.estTouche(c)) {
+//                return true; // Un des navires a été touché en c
+//            }
+//        }
+//        return false; // Aucun navire touché en c
 //    }
+    public boolean estTouche(Coordonnee c) {
+		for (int i = 0; i < nbNavires; i++) {
+			if (navires[i].estTouche(c)) {
+				return true;
+			}
+		}
+		return false;
+	}
     public boolean estALEau(Coordonnee c) {
-        for (Navire navire : navires) {
-            if (navire.estTouche(c)) {
-                return false; // La case a touché un navire, donc elle n'est pas à l'eau
-            }
-        }
-        return estDansTirsRecus(c); // Retourne vrai si la case est dans les tirs reçus
-    }
+        return !estTouche(c) && estDansTirsRecus(c);
+  }
+//    public boolean estALEau(Coordonnee c) {
+//        for (Navire navire : navires) {
+//            if (navire.estTouche(c)) {
+//                return false; // La case a touché un navire, donc elle n'est pas à l'eau
+//            }
+//        }
+//        return estDansTirsRecus(c); // Retourne vrai si la case est dans les tirs reçus
+//    }
 
     public boolean estCoule(Coordonnee c) {
     	for (int i=0; i<nbNavires; i++){
