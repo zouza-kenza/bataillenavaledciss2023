@@ -23,15 +23,19 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.ButtonGroup;
 
 public class BatailleNavale {
 
 	private JFrame frame;
 	private Joueur joueur1, joueur2;
 	private int tailleGrille;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField tfNomJ1;
+	private JTextField tfNomJ2;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	private void demarrerPartie() {
 		new Thread() {
@@ -82,9 +86,8 @@ public class BatailleNavale {
 		lblTailleDeGrille.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panel_01.add(lblTailleDeGrille);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		panel_01.add(textField);
+		JSpinner spTaille = new JSpinner();
+		panel_01.add(spTaille);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(0, 40, 332, 259);
@@ -105,24 +108,28 @@ public class BatailleNavale {
 		Nom_de_Joueur_1_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		Nom.add(Nom_de_Joueur_1_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("Joueur 1");
-		textField_1.setColumns(10);
-		Nom.add(textField_1);
+		tfNomJ1 = new JTextField();
+		tfNomJ1.setText("Joueur 1");
+		tfNomJ1.setColumns(10);
+		Nom.add(tfNomJ1);
 		
-		JRadioButton btn1_1 = new JRadioButton("Joueur graphique");
-		btn1_1.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		panelJoueur_1.add(btn1_1);
+		JRadioButton btnJ1Graphique = new JRadioButton("Joueur graphique");
+		buttonGroup.add(btnJ1Graphique);
+		btnJ1Graphique.setSelected(true);
+		btnJ1Graphique.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		panelJoueur_1.add(btnJ1Graphique);
 		
-		JRadioButton btn2_1 = new JRadioButton("Joueur Texte");
-		btn2_1.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btn2_1.setVerticalAlignment(SwingConstants.TOP);
-		panelJoueur_1.add(btn2_1);
+		JRadioButton btnJ1Texte = new JRadioButton("Joueur Texte");
+		buttonGroup.add(btnJ1Texte);
+		btnJ1Texte.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnJ1Texte.setVerticalAlignment(SwingConstants.TOP);
+		panelJoueur_1.add(btnJ1Texte);
 		
-		JRadioButton btn3_1 = new JRadioButton("Joueur Auto");
-		btn3_1.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btn3_1.setVerticalAlignment(SwingConstants.TOP);
-		panelJoueur_1.add(btn3_1);
+		JRadioButton btnJ1Auto = new JRadioButton("Joueur Auto");
+		buttonGroup.add(btnJ1Auto);
+		btnJ1Auto.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnJ1Auto.setVerticalAlignment(SwingConstants.TOP);
+		panelJoueur_1.add(btnJ1Auto);
 		
 		JPanel panelJoueur_2 = new JPanel();
 		panelJoueur_2.setBorder(new TitledBorder(null, "Joueur 2", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -138,24 +145,25 @@ public class BatailleNavale {
 		Nom_de_Joueur_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		Nom_2.add(Nom_de_Joueur_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("Joueur 2");
-		textField_2.setColumns(10);
-		Nom_2.add(textField_2);
+		tfNomJ2 = new JTextField();
+		tfNomJ2.setText("Joueur 2");
+		tfNomJ2.setColumns(10);
+		Nom_2.add(tfNomJ2);
 		
-		JRadioButton btn1_1_1 = new JRadioButton("Joueur graphique");
-		btn1_1_1.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		panelJoueur_2.add(btn1_1_1);
+		JRadioButton btnJ2Graphique = new JRadioButton("Joueur graphique");
+		btnJ2Graphique.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		panelJoueur_2.add(btnJ2Graphique);
 		
-		JRadioButton btn2_1_1 = new JRadioButton("Joueur Texte");
-		btn2_1_1.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btn2_1_1.setVerticalAlignment(SwingConstants.TOP);
-		panelJoueur_2.add(btn2_1_1);
+		JRadioButton btnJ2Texte = new JRadioButton("Joueur Texte");
+		btnJ2Texte.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnJ2Texte.setVerticalAlignment(SwingConstants.TOP);
+		panelJoueur_2.add(btnJ2Texte);
 		
-		JRadioButton btn3_1_1 = new JRadioButton("Joueur Auto");
-		btn3_1_1.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btn3_1_1.setVerticalAlignment(SwingConstants.TOP);
-		panelJoueur_2.add(btn3_1_1);
+		JRadioButton btnJ2Auto = new JRadioButton("Joueur Auto");
+		btnJ2Auto.setSelected(true);
+		btnJ2Auto.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnJ2Auto.setVerticalAlignment(SwingConstants.TOP);
+		panelJoueur_2.add(btnJ2Auto);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(0, 304, 332, 38);
@@ -163,6 +171,63 @@ public class BatailleNavale {
 		panel_3.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Lancer la partie");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int[] tailleNavires = {2,3,4,4,5};
+				int taille = Integer.parseInt(spTaille.getValue().toString());
+				if (btnJ1Graphique.isSelected()) {
+					GrilleNavaleGraphique gn1 = new GrilleNavaleGraphique(taille);
+					GrilleGraphique gt1 = new GrilleGraphique(taille);
+					FenetreJoueur f1 = new FenetreJoueur(tfNomJ1.getText(),gt1,gn1.getGrilleGraphique());
+			
+					gn1.placementAuto(tailleNavires);
+					joueur1 = new JoueurGraphique(gn1,gt1,tfNomJ1.getText());
+					
+					f1.setVisible(true);
+				}
+				if (btnJ1Texte.isSelected()) {
+					GrilleNavale gn1 = new GrilleNavale(taille, tailleNavires);
+					joueur1 = new JoueurTexte(gn1,tfNomJ1.getText());
+					
+				
+					//f1.setVisible(true);
+				}
+				if (btnJ1Auto.isSelected()) {
+					GrilleNavale gn1 = new GrilleNavale(taille,tailleNavires);
+					joueur1 = new JoueurTexte(gn1,tfNomJ1.getText());
+					
+					
+				}
+				if (btnJ2Graphique.isSelected()) {
+					GrilleNavaleGraphique gn2 = new GrilleNavaleGraphique(taille);
+					GrilleGraphique gt2 = new GrilleGraphique(taille);
+					FenetreJoueur f2 = new FenetreJoueur(tfNomJ2.getText(),gt2,gn2.getGrilleGraphique());
+			
+					gn2.placementAuto(new int[] {2});
+					joueur2 = new JoueurGraphique(gn2,gt2,tfNomJ2.getText());
+					
+					f2.setVisible(true);
+				}
+				if (btnJ2Texte.isSelected()) {
+					GrilleNavale gn2 = new GrilleNavale(taille, tailleNavires);
+					joueur1 = new JoueurTexte(gn2,tfNomJ2.getText());
+					//f2.setVisible(true);
+				}
+				if (btnJ2Auto.isSelected()) {
+					GrilleNavale gn2 = new GrilleNavale(taille,tailleNavires);
+					joueur2 = new JoueurAuto(gn2,tfNomJ2.getText());
+					
+					
+				}
+				
+				
+				
+				// a la fin
+				demarrerPartie();
+				
+			}
+		});
 		btnNewButton.setBackground(new Color(128, 128, 255));
 		btnNewButton.setBounds(112, 5, 107, 23);
 		panel_3.add(btnNewButton);
