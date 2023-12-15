@@ -1,6 +1,6 @@
 package fr.uga.miashs.inff3.bataillenavale;
 //!! lever des exceptions !!
-public class JoueurAvecGrille extends Joueur {
+public abstract class JoueurAvecGrille extends Joueur {
 	//attribut
 	private GrilleNavale grille;
 	
@@ -10,9 +10,6 @@ public class JoueurAvecGrille extends Joueur {
 		super(g.getTaille(), nom);
 		// on va avoir un nouvel objet Joueur avec la taille de la grille de navires = g.getTaille() et le nom = nom.
 		this.grille = g;
-		if (nom.isEmpty() || nom == null) {
-			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
-		}
 	}
 	public JoueurAvecGrille(GrilleNavale g) {
 		super(g.getTaille());
@@ -33,27 +30,4 @@ public class JoueurAvecGrille extends Joueur {
 			else
 				return super.TOUCHE;
 	}
-	
-	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	@Override
-	protected void retourAttaque(Coordonnee c, int etat) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	protected void retourDefense(Coordonnee c, int etat) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public Coordonnee choixAttaque() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
