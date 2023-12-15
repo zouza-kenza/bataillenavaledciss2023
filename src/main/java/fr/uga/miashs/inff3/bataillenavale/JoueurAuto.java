@@ -7,6 +7,9 @@ public class JoueurAuto extends JoueurAvecGrille {
 
 		public JoueurAuto(GrilleNavale g, String nom){
 			super(g, nom);
+			if (nom.isEmpty() || nom == null) {
+			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
+		}
 		}
 		public JoueurAuto (GrilleNavale g){
 			super(g);
