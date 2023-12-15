@@ -33,6 +33,19 @@ public class JoueurAuto extends JoueurAvecGrille {
 		*/
 		return new Coordonnee((int)(Math.random()*this.getTailleGrille()), (int)(Math.random()*this.getTailleGrille()));
 		}
+
+		public Coordonnee choixAttaqueAuto() { // on va stocker les coordonnées dans lesquelles le bot a attaqué et on va vérifier les tirs précédents grace au set
+			Coordonnee coord; // création de nouvelle coordonnées coord
+			do {
+				int ligne = random.nextInt(getTailleGrille());  
+				int colonne = random.nextInt(getTailleGrille());
+				coord = new Coordonnee (ligne,colonne); // coord récupère le random de la ligne et colonne 
+			} while (tirsEffectues.contains(coord)); // tant que tirsEffectues qu'on a crée plus haut pour stocker et faire comme un historique
+			
+			tirsEffectues.add(coord);
+			return coord;
+			}
+		
 	
 
 
