@@ -10,9 +10,6 @@ public class JoueurTexte extends JoueurAvecGrille {
     public JoueurTexte(GrilleNavale g, String nom) {
         super(g, nom);
         this.sc = new Scanner(System.in);
-	if (nom.isEmpty() || nom == null) {
-			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
-		}
     }
 
     public JoueurTexte(GrilleNavale g) {
@@ -29,7 +26,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 				System.out.println("Vous avez coulé en " + c + "le navire a "  + etat);
 			break; 
 			case A_L_EAU :
-				System.out.println("A l'eau en " + c + "le navire est " + etat);
+				System.out.println("Attaque à l'eau " + c + "le navire est ");
 			break; 
 			case GAMEOVER :
 				System.out.println("Partie terminée" + etat);
@@ -46,7 +43,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 				System.out.println("Vous avez été coulé " + c + "le navire est "  + etat);
 			break; 
 			case A_L_EAU :
-				System.out.println("Vous êtes à l'eau en " + c + "le navire est " + etat);
+				System.out.println("Missile en face à l'eau en  " + c );
 			break; 
 			case GAMEOVER :
 				System.out.println("Partie terminée" + etat);
@@ -55,8 +52,6 @@ public class JoueurTexte extends JoueurAvecGrille {
     }
        
 	public Coordonnee choixAttaque() {
-		//lever une exception si la 1ère saisie n'est pas un chiffre compris entre 1 et taille de la grille+1?
-		//lever une exception si la 2ème saisie n'est pas une lettre comprise entre A et taille grille convertit en lettre
     System.out.println("Saisissez la ligne pour l'attaque : ");
     	String ligne = sc.nextLine();
     System.out.println("Saisissez la colonne pour l'attaque : ");
