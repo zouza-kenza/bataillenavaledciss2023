@@ -10,6 +10,9 @@ public class JoueurTexte extends JoueurAvecGrille {
     public JoueurTexte(GrilleNavale g, String nom) {
         super(g, nom);
         this.sc = new Scanner(System.in);
+	if (nom.isEmpty() || nom == null) {
+			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
+		}
     }
 
     public JoueurTexte(GrilleNavale g) {
