@@ -63,17 +63,36 @@ public class JoueurAuto extends JoueurAvecGrille {
 			    } 
 			}
 	*/
-		public Coordonnee choixAttaqueAuto() { // on va stocker les coordonnées dans lesquelles le bot a attaqué et on va vérifier les tirs précédents grace au set
-			Coordonnee coord; // création de nouvelle coordonnées coord
-			do {
-				int ligne = random.nextInt(getTailleGrille());  
-				int colonne = random.nextInt(getTailleGrille());
-				coord = new Coordonnee (ligne,colonne); // coord récupère le random de la ligne et colonne 
-			} while (tirsEffectues.contains(coord)); // tant que tirsEffectues qu'on a crée plus haut pour stocker et faire comme un historique
-			
-			tirsEffectues.add(coord);
-			return coord;
-			}
+	
+		public boolean estJoue() {
+		    Coordonnee coord;
+		    boolean coordDejaTiree;
+
+		    do {
+		        int ligne = random.nextInt(getTailleGrille());
+		        int colonne = random.nextInt(getTailleGrille());
+		        coord = new Coordonnee(ligne, colonne);
+
+		        coordDejaTiree = tirsEffectues.contains(coord);
+		    } while (coordDejaTiree);
+
+		    tirsEffectues.add(coord);
+		    return true;
+		}
+
+		public Coordonnee choixAttaque() {
+		    Coordonnee coord;
+		    if (estJoue()) { // La condition doit être entourée de parenthèses pour appeler la méthode
+		        return new Coordonnee((int) (Math.random() * this.getTailleGrille()), (int) (Math.random() * this.getTailleGrille()));
+		    } else {
+		        // Gestion d'une autre condition ou retourner une valeur par défaut si nécessaire
+		        // Par exemple, retourner une coordonnée aléatoire si estJoue() retourne false
+		        coord = new Coordonnee((int) (Math.random() * this.getTailleGrille()), (int) (Math.random() * this.getTailleGrille()));
+		    }
+		    return coord;
+		}
+
+	
 		
 	
 
