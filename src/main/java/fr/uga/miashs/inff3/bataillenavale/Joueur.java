@@ -15,9 +15,6 @@ public abstract class Joueur {
 	public Joueur(int tailleGrille, String nom) {
 		this.nom = nom;
 		this.tailleGrille = tailleGrille;
-		if (nom.isEmpty() || nom == null) {
-			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
-		}
 	}
 	public Joueur(int tailleGrille) {
 		this.tailleGrille = tailleGrille;
@@ -68,5 +65,5 @@ public abstract class Joueur {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 }
