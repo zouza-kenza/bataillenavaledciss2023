@@ -53,7 +53,7 @@ public class JoueurTexte extends JoueurAvecGrille {
        
 	public Coordonnee choixAttaque() {
     System.out.println("Saisissez la coordonnée pour l'attaque : ");
-    	String ligne = sc.nextLine();
+    	String s = sc.nextLine();
     	return new Coordonnee(s);
 	}
 }
