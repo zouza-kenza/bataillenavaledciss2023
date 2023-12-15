@@ -19,47 +19,42 @@ public class JoueurTexte extends JoueurAvecGrille {
 
     protected void retourAttaque(Coordonnee c, int etat) {
 		switch (etat) {
-			case TOUCHE :
-				System.out.println("Vous avez touché en " + c + "le navire est " + etat);
-			break;
-			case COULE :
-				System.out.println("Vous avez coulé en " + c + "le navire a "  + etat);
-			break; 
-			case A_L_EAU :
-				System.out.println("Attaque à l'eau " + c + "le navire est ");
-			break; 
-			case GAMEOVER :
-				System.out.println("Partie terminée" + etat);
-			break;  // il faut changer ou bien initialiser pour faire en sorte que 1, 2 , 3 ,4 correspondent bien au Coulé, à l'eau, touché,
-		}
+		case TOUCHE :
+			System.out.println("Vous avez touché en " + c + "; le navire est touché");
+		break;
+		case COULE :
+			System.out.println("Vous avez coulé en " + c + "; le navire est coulé");
+		break; 
+		case A_L_EAU :
+			System.out.println("A l'eau en " + c);
+		break; 
+		case GAMEOVER :
+			System.out.println("Partie terminée");
+		break;  // il faut changer ou bien initialiser pour faire en sorte que 1, 2 , 3 ,4 correspondent bien au Coulé, à l'eau, touché,
+	}
     }
 
     protected void retourDefense(Coordonnee c, int etat) {
-		switch (etat) {
-			case TOUCHE :
-				System.out.println("Vous avez été touché en " + c + "le navire est " + etat);
-			break;
-			case COULE :
-				System.out.println("Vous avez été coulé " + c + "le navire est "  + etat);
-			break; 
-			case A_L_EAU :
-				System.out.println("Missile en face à l'eau en  " + c );
-			break; 
-			case GAMEOVER :
-				System.out.println("Partie terminée" + etat);
-			break;  
-		}
+    	switch (etat) {
+		case TOUCHE :
+			System.out.println("Vous avez été touché en " + c + " le navire est touché");
+		break;
+		case COULE :
+			System.out.println("Vous avez été coulé " + c + " le navire est coulé");
+		break; 
+		case A_L_EAU :
+			System.out.println("Vous êtes à l'eau en " + c);
+		break; 
+		case GAMEOVER :
+			System.out.println("Partie terminée");
+		break;  
+	}
     }
        
 	public Coordonnee choixAttaque() {
-    System.out.println("Saisissez la ligne pour l'attaque : ");
+    System.out.println("Saisissez la coordonnée pour l'attaque : ");
     	String ligne = sc.nextLine();
-    System.out.println("Saisissez la colonne pour l'attaque : ");
-    	String colonne = sc.nextLine();
-
-		String coordonneeStr = ligne + colonne; 
-
-    return new Coordonnee(coordonneeStr) ;
+    	return new Coordonnee(s);
 	}
 }
    
