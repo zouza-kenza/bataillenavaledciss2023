@@ -13,6 +13,9 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	GrilleGraphique grilleTirs, String nom) {
 		super(grilleDefense, nom);
 		this.grilleTirs = grilleTirs;
+		if (nom.isEmpty() || nom == null) {
+			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
+		}
 	}
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
 	GrilleGraphique grilleTirs) {
