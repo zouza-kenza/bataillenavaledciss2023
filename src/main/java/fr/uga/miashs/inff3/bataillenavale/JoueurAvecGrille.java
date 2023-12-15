@@ -10,6 +10,9 @@ public class JoueurAvecGrille extends Joueur {
 		super(g.getTaille(), nom);
 		// on va avoir un nouvel objet Joueur avec la taille de la grille de navires = g.getTaille() et le nom = nom.
 		this.grille = g;
+		if (nom.isEmpty() || nom == null) {
+			throw new IllegalArgumentException("Le nom est vide ou contient un ou des espace(s)");
+		}
 	}
 	public JoueurAvecGrille(GrilleNavale g) {
 		super(g.getTaille());
